@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 mx-auto mt-5">
+      <form (submit)="submit()">
+        <mat-form-field class="mb-1" style="width: 100%">
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput [formControl]="firstName" [errorStateMatcher]="matcher"
+            placeholder="Ex. stafan" />
+          <mat-error *ngIf="firstName.hasError('required')">
+            Firstname is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%" class="mb-1">
+          <mat-label>Last Name</mat-label>
+          <input type="text" matInput [formControl]="lastName" [errorStateMatcher]="matcher"
+            placeholder="Ex. salvators" />
+          <mat-error *ngIf="lastName.hasError('required')">
+            Lastname is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [formControl]="dob" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="dob.hasError('required')">
+            Date of birth is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-radio-group aria-label="Select an option" style="margin-left: 10px;" [formControl]="gender" required >
+          <mat-label>  Gender :</mat-label>
+          <mat-radio-button value="1">Male</mat-radio-button>
+          <mat-radio-button value="2">Female</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field style="width: 100%" class="mb-1">
+          <mat-label>Email</mat-label>
+          <input type="text" matInput [formControl]="email" [errorStateMatcher]="matcher"
+            placeholder="Ex. pat@example.com" />
+          <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%" class="mb-1">
+          <mat-label>Phone Number</mat-label>
+          <input type="text" matInput [formControl]="phon" [errorStateMatcher]="matcher"
+            placeholder="Ex. +918276523623" />
+          <mat-error *ngIf="phon.hasError('pattern') && !phon.hasError('required')">
+            Please enter a number only
+          </mat-error>
+          <mat-error *ngIf="phon.hasError('required')">
+            Phone number is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+          <mat-label>Skill</mat-label>
+          <textarea matInput placeholder="Ex. java,angular,....." [formControl]="skill"></textarea>
+          <mat-error *ngIf="skill.hasError('required')">
+            Skill is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button class="mt-2" mat-flat-button color="primary">Apply</button>
+      </form>
+    </div>
+  </div>
+</div>
