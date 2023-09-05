@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-5 mx-auto mt-5">
+    <div class="col-lg-6 col-md-10 col-sm-10 mx-auto mt-5">
       <form (submit)="submit()">
         <mat-form-field class="mb-1" style="width: 100%">
           <mat-label>First Name</mat-label>
@@ -19,7 +19,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field style="width: 100%;">
-          <mat-label>Choose a date</mat-label>
+          <mat-label>Date of Birth</mat-label>
           <input matInput [formControl]="dob" [matDatepicker]="picker">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker">
